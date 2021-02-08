@@ -6,10 +6,10 @@ export const deleteStudent = (payload) => ({
     payload
 });
 
-function deletingStudent(payload) {
-    return  dispatch => {
+function  deletingStudent(payload) {
+    return  async dispatch => {
         dispatch(deleteStudent(payload))
-         API('delete', 'students',null, payload).then((res) =>
+        await API('delete', 'students',null, payload).then((res) =>
              dispatch(fetchingStudents())
          )
 
